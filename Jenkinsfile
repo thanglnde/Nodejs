@@ -10,6 +10,13 @@ pipeline {
         }
       }
     }
+    stage('Shh server') {
+      steps {
+        sshagent(['ssh-remote']) {
+          sh 'ssh -o StrictHostKeyChecking=no -l vision 192.168.2.169 touch text.txt'
+                }
+            }
+        }
 
 //     stage('Test') {
 //       steps {
