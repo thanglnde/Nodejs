@@ -5,8 +5,8 @@ pipeline {
     stage('Build') {
       steps {
         withDockerRegistry(credentialsId: 'dockerhub', url: 'https://registry.hub.docker.com') {
-          sh 'docker build -t thangdz233/nodejs:v1 .'
-          sh 'docker push thangdz233/nodejs:v1'
+          sh label: '',script: 'docker build -t thangdz233/nodejs:v1 .'
+          sh label: '',script: 'docker push thangdz233/nodejs:v1'
         }
       }
     }
