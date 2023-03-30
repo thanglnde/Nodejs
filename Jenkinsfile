@@ -2,6 +2,14 @@ pipeline {
   agent any
 
   stages {
+    stage('Shh server') {
+      steps {
+        sshagent(['ssh-remote']) {
+          sh 'ssh -o StrictHostKeyChecking=no -l vision 192.168.2.169 touch text.txt'
+                }
+            }
+        }
+    
     stage('Build') {
       steps {
         withDockerRegistry(credentialsId: 'dockerhub', url: 'https://registry.hub.docker.com') {
@@ -10,13 +18,7 @@ pipeline {
         }
       }
     }
-    stage('Shh server') {
-      steps {
-        sshagent(['ssh-remote']) {
-          sh 'ssh -o StrictHostKeyChecking=no -l vision 192.168.2.169 touch text.txt'
-                }
-            }
-        }
+   
 
 //     stage('Test') {
 //       steps {
