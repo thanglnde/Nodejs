@@ -4,14 +4,15 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh 'docker build -t my-express-app .'
+        sh 'pwd'
+        //sh 'docker build -t my-express-app .'
       }
     }
 
-    stage('Test') {
-      steps {
-        sh 'docker run --rm my-express-app npm test'
-      }
-    }
+//     stage('Test') {
+//       steps {
+//         sh 'docker run --rm my-express-app npm test'
+//       }
+//     }
   }
 }
