@@ -13,11 +13,5 @@ pipeline {
         sh 'docker run --rm my-express-app npm test'
       }
     }
-
-    stage('Deploy') {
-      steps {
-        sh 'docker push my-express-app:latest'
-      }
-    }
   }
 }
