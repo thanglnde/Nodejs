@@ -10,4 +10,6 @@ RUN npm install
 
 COPY . .
 
-CMD ["npm", "run", "node main.js"]
+EXPOSE 3000
+
+CMD [ "node", "main.js" ]
