@@ -2,13 +2,13 @@ pipeline {
   agent { label 'Thangln' }
 
   stages {
-    agent {
-      docker { 
-        registryUrl 'https://hub.docker.com'
-        label 'dockerhub'
+    stage('Build') {
+      agent {
+        docker { 
+          registryUrl 'https://hub.docker.com'
+          label 'dockerhub'
           }
         }
-    stage('Build') {
       steps {
         withDockerRegistry(credentialsId: 'dockerhub', url: 'https://hub.docker.com') {
           sh 'docker build -t thangdz233/nodejs:v2 .'
