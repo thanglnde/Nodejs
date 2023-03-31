@@ -2,6 +2,12 @@ pipeline {
   agent { label 'Thangln' }
 
   stages {
+    agent {
+      docker { 
+        registryUrl 'https://hub.docker.com'
+        label 'dockerhub'
+          }
+        }
     stage('Build') {
       steps {
         withDockerRegistry(credentialsId: 'dockerhub', url: 'https://hub.docker.com') {
