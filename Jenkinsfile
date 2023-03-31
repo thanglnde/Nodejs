@@ -4,8 +4,7 @@ pipeline {
   stages {
     stage('Build') {
       agent {
-        docker { 
-          registryUrl 'https://hub.docker.com'
+        docker {
           label 'dockerhub'
           }
         }
