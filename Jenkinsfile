@@ -10,7 +10,7 @@ pipeline {
     }
     stage('Deploy'){
       steps {
-        sh 'docker run --name mynodejs -d thangdz233/nodejs:v2'
+        sh 'docker run thangdz233/nodejs:v2'
       }
     }
     
