@@ -6,5 +6,5 @@ app.get('/', function (req, res) {
   res.send('Hello Welcome to Automateinfra.com')
 })
 app.listen(3000, function () {
-  console.log('app listening on port 8081!')
+  console.log('app listening on port 3000!')
 })
