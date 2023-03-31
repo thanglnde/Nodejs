@@ -1,11 +1,13 @@
-FROM node:14-alpine
+FROM node:alpine
 
-RUN npm install
+WORKDIR /usr/app
 
-COPY package*.json ./
+RUN apk update && apk add libstdc++ && apk add build-base && apk add python3 && apk add bash
 
 COPY . .
 
-EXPOSE 3000
+RUN npm install
 
-CMD ["npm", "start"]
+COPY . .
+
+CMD ["npm", "run", "node main.js"]
